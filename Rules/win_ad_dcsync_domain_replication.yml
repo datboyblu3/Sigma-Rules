@@ -2,6 +2,9 @@
 itle: Replication privileges granted to perform DCSync attack
 id: 52047671-7c98-463a-9de3-e27a11100f58
 description: Detects scenarios where an attacker grants replication privilege to an account to exflitrate Active Directory credentials
+status: experimental
+date: 2022/02/03
+udpated: 2023/02/02
 requirements: auditing SACL "Modify permissions" must be placed on the root domain container (otherwise not visible) using the Active Directory console (https://www.manageengine.com/products/active-directory-audit/active-directory-auditing-configuration-guide-configure-object-level-auditing-manually.html).
 references:
 - https://github.com/mdecrevoisier/EVTX-to-MITRE-Attack/tree/master/TA0006-Credential%20Access/
@@ -19,7 +22,7 @@ tags:
   - attack.t1003
   - attack.ta0006
 author: mdecrevoisier, datboyblu3
-status: experimental
+
 logsource:
   product: windows
   service: security
