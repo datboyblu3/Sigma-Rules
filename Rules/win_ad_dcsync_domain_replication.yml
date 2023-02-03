@@ -1,5 +1,6 @@
 
 itle: Replication privileges granted to perform DCSync attack
+id: 52047671-7c98-463a-9de3-e27a11100f58
 description: Detects scenarios where an attacker grants replication privilege to an account to exflitrate Active Directory credentials
 requirements: auditing SACL "Modify permissions" must be placed on the root domain container (otherwise not visible) using the Active Directory console (https://www.manageengine.com/products/active-directory-audit/active-directory-auditing-configuration-guide-configure-object-level-auditing-manually.html).
 references:
@@ -9,10 +10,15 @@ references:
 - https://www.blacklanternsecurity.com/2020-12-04-DCSync/
 - https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/
 - https://simondotsh.com/infosec/2022/07/11/dirsync.html
+- https://twitter.com/cyb3rops/status/1003276006571102209?lang=en
+- https://www.elastic.co/guide/en/security/master/potential-credential-access-via-dcsync.html
+- https://blog.zsec.uk/zerologon-attacking-defending/
 tags:
   - attack.credential_access
   - attack.t1222.001
-author: mdecrevoisier
+  - attack.t1003
+  - attack.ta0006
+author: mdecrevoisier, datboyblu3
 status: experimental
 logsource:
   product: windows
@@ -25,7 +31,21 @@ detection:
       - 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2 # DS-Replication-Get-Changes
       - 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2 # DS-Replication-Get-Changes-All
       - 89e95b76-444d-4c62-991a-0facbeda640c # DS-Replication-Get-Changes-In-Filtered-Set
+     EventID: 4662
+     AttributeLDAPDsiplayName: ntSecurityDescriptor
+     AttributeValue|contains:
+      - 1131f6aa-9c07-11d1-f79f-00c04fc2dcd2 # DS-Replication-Get-Changes
+      - 1131f6ad-9c07-11d1-f79f-00c04fc2dcd2 # DS-Replication-Get-Changes-All
+      - 89e95b76-444d-4c62-991a-0facbeda640c # DS-Replication-Get-Changes-In-Filtered-Set
+      
+   filter1:
+        SubjectDomainName: 'Window Manager'
+    filter2:
+        SubjectUserName:
+            - 'NT AUTHORITY*'
+            - '*$'
+            - 'MSOL_*'
   condition: selection
 falsepositives:
-- Unknown
+    - Verified administrator adding a new DC to existing domain
 level: high
