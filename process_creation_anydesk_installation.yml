@@ -3,6 +3,8 @@ status: experimental
 description: AnyDesk Remote Desktop installation can be used by attacker to gain remote access
 author: Daniel Edwards
 date: 2023/02/10
+references: 
+	- https://twitter.com/TheDFIRReport/status/1423361119926816776?s=20
 tags:
     - attack.command_and_control
     - attack.t1219
@@ -20,8 +22,3 @@ detection:
 falsepositives: 
     - Legitimate deployment of AnyDesk
 level: high
-references: 
-	- https://twitter.com/TheDFIRReport/status/1423361119926816776?s=20
-tags: 
-    - attack.command_and_control
-    - attack.t1219
