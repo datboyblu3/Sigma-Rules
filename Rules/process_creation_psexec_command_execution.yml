@@ -7,6 +7,7 @@ date: 2023/02/11
 references: 
     - https://threatexpress.com/redteaming/tool_ioc/psexec/
     - https://attack.mitre.org/techniques/T1569/002/
+    - https://jpcertcc.github.io/ToolAnalysisResultSheet/#
 tags:
     - attack.command_and_control
     - attack.t1569.002
