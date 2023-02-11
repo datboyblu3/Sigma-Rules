@@ -1,5 +1,5 @@
 
-itle: Replication privileges granted to perform DCSync attack
+title: Replication privileges granted to perform DCSync attack
 id: 52047671-7c98-463a-9de3-e27a11100f58
 description: Detects scenarios where an attacker grants replication privilege to an account to exflitrate Active Directory credentials
 status: experimental
