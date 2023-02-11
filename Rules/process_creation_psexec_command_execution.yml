@@ -15,5 +15,6 @@ logsource:
     product: windows
 detection:
     selection:
+        EventID: 1
         CommandLine|contains|all:
             - 'dummy_string'
