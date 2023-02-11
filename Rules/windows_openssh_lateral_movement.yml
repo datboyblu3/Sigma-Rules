@@ -1,5 +1,5 @@
 title: Windows OpenSSH Lateral Movement Detection
-id: generate one here https://www.uuidgenerator.net/version4
+id: 1b84323d-f87c-44b3-b693-92fbafaa7341
 status: experimental
 description: A description of what your rule is meant to detect 
 references:
@@ -9,7 +9,8 @@ tags:
     - attack.t1021.004      # example MITRE ATT&CK technique id
     - car.2014-04-003   # example CAR id
 author: Daniel Edwards  # example, a list of authors
-date: 2023/01/0  # Rule date
+date: 2023/01/10  # Rule date
+modified: 2023/02/11
 logsource:                      # important for the field mapping in predefined or your additional config files
     category: process_creation  # In this example we choose the category 'process_creation'
     product: windows            # the respective product
@@ -23,4 +24,4 @@ fields:
     - fields in the log source that are important to investigate further
 falsepositives:
     - describe possible false positive conditions to help the analysts in their investigation
-level: one of five levels (informational, low, medium, high, critical)
+level: high
