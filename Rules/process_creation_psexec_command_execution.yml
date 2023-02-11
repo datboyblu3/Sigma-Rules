@@ -18,5 +18,5 @@ logsource:
 detection:
     selection:
         EventID: 1
-        CommandLine|contains|all:
-            - 'dummy_string'
+        Commmandline|contains: 'C:\Windows\system32\services.exe'
+        Image|endswith: 'PSEXESVC.exe'
