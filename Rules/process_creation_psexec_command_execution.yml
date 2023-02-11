@@ -1,7 +1,7 @@
 title: PsExec Command Execution
 id: 7850910a-fba5-4102-998e-83fe95831869
 status: experimental
-description: AnyDesk Remote Desktop installation can be used by attacker to gain remote access
+description: Detects the PSExec command execution on remote/destination host
 author: Daniel Edwards
 date: 2023/02/11
 references: 
