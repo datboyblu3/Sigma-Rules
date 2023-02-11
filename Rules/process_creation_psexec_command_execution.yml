@@ -14,3 +14,6 @@ logsource:
     category: process_creation
     product: windows
 detection:
+    selection:
+        CommandLine|contains|all:
+            - 'dummy_string'
