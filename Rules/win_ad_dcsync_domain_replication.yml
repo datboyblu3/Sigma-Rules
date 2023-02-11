@@ -22,7 +22,6 @@ tags:
   - attack.t1003
   - attack.ta0006
 author: mdecrevoisier, datboyblu3
-
 logsource:
   product: windows
   service: security
