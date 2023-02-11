@@ -1,0 +1,16 @@
+title: PsExec Command Execution
+id: 7850910a-fba5-4102-998e-83fe95831869
+status: experimental
+description: AnyDesk Remote Desktop installation can be used by attacker to gain remote access
+author: Daniel Edwards
+date: 2023/02/11
+references: 
+    - https://threatexpress.com/redteaming/tool_ioc/psexec/
+    - https://attack.mitre.org/techniques/T1569/002/
+tags:
+    - attack.command_and_control
+    - attack.t1569.002
+logsource: 
+    category: process_creation
+    product: windows
+detection:
