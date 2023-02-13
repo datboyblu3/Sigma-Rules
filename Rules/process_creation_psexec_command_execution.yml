@@ -23,4 +23,8 @@ detection:
         Image|contains: 'C:\Windows\PSEXESVC.exe'
         EventID: 13
         ServiceFileName|contains: '%SystemRoot%\PSEXESVC.exe'
+    condition: selection
+falsepositives: 
+    - Could be a legit use of PSEXEC
+level: medium
    
