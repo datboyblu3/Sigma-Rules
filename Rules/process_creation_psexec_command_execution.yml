@@ -17,10 +17,11 @@ logsource:
     product: windows
     service: sysmon
 detection:
-    selection:
+    selection_!:
         EventID: 1
         Commmandline|contains: 'C:\Windows\system32\services.exe'
         Image|contains: 'C:\Windows\PSEXESVC.exe'
+    selection_2:
         EventID: 13
         ServiceFileName|contains: '%SystemRoot%\PSEXESVC.exe'
     condition: selection
