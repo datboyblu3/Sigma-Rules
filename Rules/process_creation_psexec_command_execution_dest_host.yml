@@ -21,6 +21,7 @@ detection:
     selection1:
         EventID: 1
         Commmandline|contains: 'C:\Windows\system32\services.exe'
+        CommandLine|contains: 'ps.exe -accepteula'
         Image|contains: 'C:\Windows\PSEXESVC.exe'
         Use|contains: 'NT AUTHORITY\SYSTEM'
     condition: selection1
@@ -36,7 +37,7 @@ detection:
         ServiceName|contains: 'PSEXESVC'
         ServiceFileName|contains: '%SystemRoot%\PSEXESVC.exe'
         ServiceAccount|contains: 'LocalSystem'
-    condition: selection2
+    condition: selection2 and selection1
 
 falsepositives: 
     - Could be a legit use of PSEXEC
