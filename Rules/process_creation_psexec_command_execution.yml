@@ -15,9 +15,12 @@ tags:
 logsource: 
     category: process_creation
     product: windows
+    service: sysmon
 detection:
     selection:
         EventID: 1
         Commmandline|contains: 'C:\Windows\system32\services.exe'
         Image|contains: 'C:\Windows\PSEXESVC.exe'
+        EventID: 13
+        ServiceFileName|contains: '%SystemRoot%\PSEXESVC.exe'
    
