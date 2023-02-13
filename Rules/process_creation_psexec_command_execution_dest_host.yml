@@ -1,7 +1,7 @@
 title: PsExec Command Execution
 id: 7850910a-fba5-4102-998e-83fe95831869
 status: experimental
-description: Detects the PSExec command execution on remote/destination host
+description: Detects the PSExec command execution from remote/destination host
 author: Daniel Edwards
 date: 2023/02/11
 references: 
@@ -12,6 +12,7 @@ tags:
     - attack.command_and_control
     - attack.t1569.002
     - attack.s0029
+# Sysmon Process Creation
 logsource: 
     category: process_creation
     product: windows
@@ -21,8 +22,24 @@ detection:
         EventID: 1
         Commmandline|contains: 'C:\Windows\system32\services.exe'
         Image|contains: 'C:\Windows\PSEXESVC.exe'
+        Use|contains: 'NT AUTHORITY\SYSTEM'
     condition: selection
+    
+# Service Installation
+logsource:
+     category: service_install
+     product: windows
+     service: system
+detection:
+    selection:
+        EventID: 7045
+        ServiceName|contains: 'PSEXESVC'
+        ServiceFileName|contains: '%SystemRoot%\PSEXESVC.exe'
+        ServiceAccount|contains: 'LocalSystem'
+    condition: selection
+
 falsepositives: 
     - Could be a legit use of PSEXEC
+    
 level: medium
    
