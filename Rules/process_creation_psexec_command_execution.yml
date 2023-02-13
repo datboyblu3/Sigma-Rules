@@ -17,7 +17,7 @@ logsource:
     product: windows
     service: sysmon
 detection:
-    selection_1:
+    selection:
         EventID: 1
         Commmandline|contains: 'C:\Windows\system32\services.exe'
         Image|contains: 'C:\Windows\PSEXESVC.exe'
