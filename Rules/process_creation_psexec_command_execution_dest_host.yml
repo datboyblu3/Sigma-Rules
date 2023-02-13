@@ -18,12 +18,12 @@ logsource:
     product: windows
     service: sysmon
 detection:
-    selection:
+    selection1:
         EventID: 1
         Commmandline|contains: 'C:\Windows\system32\services.exe'
         Image|contains: 'C:\Windows\PSEXESVC.exe'
         Use|contains: 'NT AUTHORITY\SYSTEM'
-    condition: selection
+    condition: selection1
     
 # Service Installation
 logsource:
@@ -31,12 +31,12 @@ logsource:
      product: windows
      service: system
 detection:
-    selection:
+    selection2:
         EventID: 7045
         ServiceName|contains: 'PSEXESVC'
         ServiceFileName|contains: '%SystemRoot%\PSEXESVC.exe'
         ServiceAccount|contains: 'LocalSystem'
-    condition: selection
+    condition: selection2
 
 falsepositives: 
     - Could be a legit use of PSEXEC
