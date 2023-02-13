@@ -19,5 +19,4 @@ detection:
     selection:
         EventID: 1
         Commmandline|contains: 'C:\Windows\system32\services.exe'
-        Image|endswith: 'PSEXESVC.exe'
         Image|contains: 'C:\Windows\PSEXESVC.exe'
