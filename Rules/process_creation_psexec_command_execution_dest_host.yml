@@ -19,7 +19,7 @@ logsource:
     product: windows
     service: sysmon
 detection:
-    selection1:
+    selection:
         EventID: 1
         ParentCommmandLine|contains: 'C:\Windows\system32\services.exe'
         CommandLine|contains: 'ps.exe -accepteula'
