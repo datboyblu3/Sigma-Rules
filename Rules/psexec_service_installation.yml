@@ -1,0 +1,30 @@
+title: PsExec Service Install
+id: 95d56cb2-8c60-41ce-ab9e-5c9c26f44059
+status: experimental
+description: Detects the installation of PSExec on the remote/destination host
+author: Daniel Edwards
+date: 2023/02/13
+references: 
+    - https://threatexpress.com/redteaming/tool_ioc/psexec/
+    - https://attack.mitre.org/techniques/T1569/002/
+    - https://jpcertcc.github.io/ToolAnalysisResultSheet/#
+tags:
+    - attack.command_and_control
+    - attack.t1569.002
+    - attack.s0029
+# Sysmon Serviec Install
+logsource:
+     category: service_install
+     product: windows
+     service: system
+detection:
+    selection2:
+        EventID: 7045
+        ServiceName|contains: 'PSEXESVC'
+        ServiceFileName|contains: '%SystemRoot%\PSEXESVC.exe'
+        ServiceAccount|contains: 'LocalSystem'
+    condition: selection2 and selection1
+falsepositives: 
+    - Could be a legit use of PSEXEC
+    
+level: medium
