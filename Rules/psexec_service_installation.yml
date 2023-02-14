@@ -18,12 +18,12 @@ logsource:
      product: windows
      service: system
 detection:
-    selection2:
+    selection:
         EventID: 7045
         ServiceName|contains: 'PSEXESVC'
         ServiceFileName|contains: '%SystemRoot%\PSEXESVC.exe'
         ServiceAccount|contains: 'LocalSystem'
-    condition: selection2 and selection1
+    condition: selection
 falsepositives: 
     - Could be a legit use of PSEXEC
     
