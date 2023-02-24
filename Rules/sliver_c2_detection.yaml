@@ -1,0 +1,9 @@
+title: Sliver Command & Control Detection
+id: 76df15d3-fa70-495a-a7e7-5bc2e6c58f7f
+status: experimental
+description: Sliver C2 Framework detection, detects the execution and callback of framework
+author: Daniel Edwards
+date: 2023/02/23
+references: 
+- https://www.cybereason.com/blog/sliver-c2-leveraged-by-many-threat-actors
+
